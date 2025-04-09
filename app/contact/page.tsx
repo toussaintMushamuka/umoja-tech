@@ -38,29 +38,6 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, service: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    toast({
-      title: "Formulaire envoyé!",
-      description: "Nous vous contacterons bientôt.",
-    });
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: "",
-    });
-
-    setIsSubmitting(false);
-  };
-
   return (
     <div className="container py-12 md:py-24 lg:py-32">
       <motion.div
@@ -97,7 +74,11 @@ export default function ContactPage() {
         >
           <Card className="h-full dark:border-primary/20">
             <CardContent className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                action="https://formspree.io/f/xjkyjkpn"
+                method="POST"
+                className="space-y-6"
+              >
                 <div className="space-y-2">
                   <Label htmlFor="name">Nom complet</Label>
                   <Input
