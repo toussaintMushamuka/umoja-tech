@@ -9,6 +9,7 @@ import TestimonialCard from "@/components/testimonial-card";
 import { services, getServiceIcon } from "@/lib/services-data";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import HeroSection from "@/components/hero-section";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,63 +40,67 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen w-full ">
       {/* Hero Section with Animation */}
-      <section className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48">
-        <div className="absolute inset-0 bg-slate-950 from-primary/20 to-primary/5 dark:from-primary/10 dark:to-background z-0"></div>
+      <section className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-slate-800 from-primary/20 to-primary/5 dark:from-primary/10 dark:to-background z-0" />
+
+        {/* Background image */}
         <div
-          className="absolute inset-0 z-0 opacity-10"
+          className="absolute inset-0 z-0 opacity-10 bg-cover bg-center"
           style={{
             backgroundImage: "url('/img/img7.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
           }}
-        ></div>
+        />
 
-        <div className="container relative z-10">
-          <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-2 items-center">
+            {/* Texte à gauche */}
             <motion.div
-              className="flex flex-col justify-center space-y-4"
+              className="space-y-6"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="space-y-2">
-                <h1 className="text-3xl sm:text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-white bg-gradient-to-r from-primary to-primary/70 dark:from-primary dark:to-primary/50">
-                  Des services rapides et de qualité pour répondre à vos besoins
-                </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Umoja Tech vous offre une gamme complète de services de
-                  bureautique, d'impression, de conception et de marketing
-                  digital.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <h1 className="text-3xl sm:text-2xl md:text-4xl font-bold text-white leading-tight">
+                Des services de qualités
+                <br />
+                pour répondre à vos besoins
+              </h1>
+              <p className="text-muted-foreground md:text-xl max-w-2xl">
+                Umoja Tech vous offre une gamme complète de services de
+                bureautique, d'impression, de conception et de marketing
+                digital.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/services">
                   <Button
                     size="lg"
-                    className="w-full sm:w-auto group transition-all duration-300 transform hover:translate-x-1"
+                    className="group hover:translate-x-1 transition-all duration-300"
                   >
                     Découvrir nos services
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link href="/contact">
                   <Button
                     variant="outline"
                     size="lg"
-                    className="w-full sm:w-auto transition-all duration-300 hover:bg-primary/10"
+                    className="hover:bg-primary/10"
                   >
                     Demander un devis
                   </Button>
                 </Link>
               </div>
             </motion.div>
+
+            {/* Image à droite */}
             <motion.div
-              className="flex items-center justify-center mt-8 lg:mt-0"
+              className="mt-8 lg:mt-0 w-full flex justify-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="relative aspect-video  rounded-xl lg:aspect-square shadow-2xl dark:shadow-primary/20">
+              <div className="relative w-full max-w-md aspect-video lg:aspect-square rounded-xl overflow-hidden shadow-2xl dark:shadow-primary/20">
                 <img
                   src="/img/img6.jpg"
                   alt="Umoja Tech Services"
@@ -104,21 +109,22 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
-
-          <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.7,
-              delay: 1.5,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
-          >
-            <ChevronDown className="h-8 w-8 text-primary" />
-          </motion.div>
         </div>
+
+        {/* Flèche vers le bas */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.7,
+            delay: 1.5,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        >
+          <ChevronDown className="h-8 w-8 text-primary" />
+        </motion.div>
       </section>
 
       {/* Services Overview Section with Animation */}
@@ -278,7 +284,7 @@ export default function Home() {
             </motion.div>
             <motion.div variants={item}>
               <TestimonialCard
-                quote="En tant que directeur d'une école primaire, j’ai besoin de services de saisie et d’impression fiables, rapides et de qualité. Depuis que je travaille avec [Nom de l'entreprise], je suis entièrement satisfait. Les documents sont toujours bien présentés, livrés dans les délais, et le service client est remarquable"
+                quote="En tant que directeur d'une école primaire, j’ai besoin de services de saisie et d’impression fiables, rapides et de qualité. Depuis que je travaille avec UmojaTech, je suis entièrement satisfait. Les documents sont toujours bien présentés, livrés dans les délais, et le service client est remarquable"
                 author="Directeur"
                 company="E.P1 CAHI"
               />

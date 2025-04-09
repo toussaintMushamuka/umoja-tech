@@ -10,7 +10,7 @@ export default function HeroSection() {
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Des services rapides et de qualité pour répondre à vos besoins
+                Des services de qualités pour répondre à vos besoins
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 Umoja Tech vous offre une gamme complète de services de
