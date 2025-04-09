@@ -9,7 +9,6 @@ import TestimonialCard from "@/components/testimonial-card";
 import { services, getServiceIcon } from "@/lib/services-data";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import HeroSection from "@/components/hero-section";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
