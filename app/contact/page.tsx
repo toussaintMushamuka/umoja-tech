@@ -50,10 +50,7 @@ export default function ContactPage() {
           className="relative h-80 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/img/img8.jpg')" }}
         >
-          {/* Overlay noir semi-transparent */}
           <div className="absolute inset-0 bg-black/60" />
-
-          {/* Contenu centré */}
           <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               Contactez-nous
@@ -206,6 +203,20 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
+              <div className="flex items-start gap-3">
+                <Phone className="h-5 w-5 text-green-600 mt-1" />
+                <div>
+                  <h3 className="font-medium">WhatsApp</h3>
+                  <a
+                    href="https://wa.me/243994822893"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:underline"
+                  >
+                    Écrivez-nous sur WhatsApp
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -228,7 +239,19 @@ export default function ContactPage() {
           </div>
         </motion.div>
       </div>
+
       <Toaster />
+
+      {/* Bouton flottant WhatsApp */}
+      <a
+        href="https://wa.me/243994822893?text=Bonjour%20Umoja-Tach%2C%20je%20souhaite%20avoir%20plus%20d'informations%20sur%20vos%20services."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2 transition"
+      >
+        <Phone className="w-4 h-4" />
+        <span className="hidden md:inline">WhatsApp</span>
+      </a>
     </div>
   );
 }
