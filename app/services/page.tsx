@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import ServiceCard from "@/components/service-card";
 import { services, getServiceIcon } from "@/lib/services-data";
-
+import { Button } from "@/components/ui/button";
+import { Camera, Printer, PenTool, Megaphone, CheckCircle, Mail, Briefcase, Palette } from "lucide-react";
 export default function ServicesPage() {
   const container = {
     hidden: { opacity: 0 },
@@ -23,29 +24,123 @@ export default function ServicesPage() {
 
   return (
     <div className="container py-12 md:py-24 lg:py-32">
+      {/* New Orbital Hero Section */}
       <motion.div
-        className="flex flex-col items-center justify-center space-y-4 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+        className="w-full relative pb-16 pt-8 overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
-        <section
-          className="relative h-80 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/img/img7.jpg')" }} // <-- change l'image si besoin
-        >
-          {/* Overlay sombre */}
-          <div className="absolute inset-0 bg-black/60" />
-
-          {/* Contenu centré */}
-          <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white px-4 space-y-2">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+        <div className="grid lg:grid-cols-3 gap-12 lg:gap-8 items-center max-w-6xl mx-auto">
+          
+          {/* Left Text */}
+          <div className="flex flex-col space-y-6 z-10 text-center lg:text-left order-2 lg:order-1 items-center lg:items-start">
+            <div className="text-sm font-semibold text-primary bg-primary/10 w-max px-4 py-1.5 rounded-full">
               Nos Services
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight">
+              Umoja Tech<br/>Expertise
             </h1>
-            <p className="max-w-[900px] text-white/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Des services rapides et de qualité pour répondre à vos besoins
+            <p className="text-muted-foreground max-w-sm">
+              Des services rapides, fiables et de qualité pour répondre à tous vos besoins technologiques.
             </p>
+            
           </div>
-        </section>
+
+          {/* Center Image with Orbiting elements */}
+          <div className="relative flex justify-center items-center h-[350px] sm:h-[450px] lg:h-[500px] z-10 order-1 lg:order-2 w-full">
+            {/* Center Image */}
+            <motion.div 
+              className="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-8 border-background shadow-2xl z-20 relative bg-muted"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
+            >
+              <img src="/img/a.jpg" alt="Service Umoja" className="w-full h-full object-cover" />
+            </motion.div>
+
+            {/* Orbit Circles */}
+            <div className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border border-border/60 z-0"></div>
+            <div className="absolute w-[350px] h-[350px] sm:w-[480px] sm:h-[480px] lg:w-[580px] lg:h-[580px] rounded-full border border-border/30 z-0 hidden sm:block"></div>
+
+            {/* Floating Nodes (Icons) */}
+            <motion.div 
+              className="absolute top-[5%] sm:top-[10%] left-[10%] sm:left-[15%] bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg z-30"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            >
+            </motion.div>
+            <motion.div 
+              className="absolute bottom-[5%] sm:bottom-[15%] left-[5%] sm:left-[10%] p-3 sm:p-4 rounded-full shadow-lg z-30"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }} >
+               <Printer className="w-6 h-6 sm:w-8 sm:h-8 dark:text-blue-400" />
+            </motion.div>
+            <motion.div 
+              className="absolute top-[15%] sm:top-[20%] right-[5%] sm:right-[10%] p-3 rounded-full shadow-lg z-30"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
+            >
+               <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 dark:text-blue-400" />
+            </motion.div>
+            <motion.div 
+              className="absolute bottom-[5%] sm:bottom-[10%] right-[10%] sm:right-[15%] p-3 rounded-full shadow-lg z-30"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1.5 }}
+            >
+               <Camera className="w-5 h-5 sm:w-6 sm:h-6 dark:text-blue-400" />
+            </motion.div>
+            <motion.div 
+              className="absolute top-[-5%] sm:top-[0%] left-[45%]  p-2 sm:p-3 rounded-full shadow-lg z-30"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.2 }}
+            >
+            </motion.div>
+          </div>
+
+          {/* Right Features */}
+          <div className="flex flex-col space-y-6 z-10 lg:pl-10 order-3 w-full max-w-sm mx-auto lg:max-w-none">
+            <motion.div 
+              className="flex items-center gap-4 bg-background/80 backdrop-blur-sm p-4 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+             
+              <div>
+                <h3 className="font-bold text-sm sm:text-base">Bureautique</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">Solutions complètes</p>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="flex items-center gap-4 bg-background/80 backdrop-blur-sm p-4 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+            
+              <div>
+                <h3 className="font-bold text-sm sm:text-base">Marketing Digital</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">Visibilité accrue</p>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="flex items-center gap-4 bg-background/80 backdrop-blur-sm p-4 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              
+              <div>
+                <h3 className="font-bold text-sm sm:text-base">Conception</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">Design créatif & moderne</p>
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
       </motion.div>
 
       <motion.div
