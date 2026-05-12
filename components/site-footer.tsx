@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Mountain } from "lucide-react";
+import Image from "next/image";
+
 
 export default function SiteFooter() {
   return (
@@ -7,8 +8,7 @@ export default function SiteFooter() {
       <div className="container px-4 grid gap-8 py-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-2">
           <Link href="/" className="flex items-center gap-2">
-            <Mountain className="h-6 w-6" />
-            <span className="font-bold">Umoja Tech</span>
+          <Image src="/img/logo.png" width={100} height={100} alt="Umoja Tech" />
           </Link>
           <p className="text-sm text-muted-foreground">
             Des services rapides et de qualité pour répondre à vos besoins en
@@ -78,22 +78,6 @@ export default function SiteFooter() {
                 className="text-muted-foreground hover:text-foreground"
               >
                 Contact
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Conditions générales
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Politique de confidentialité
               </Link>
             </li>
           </ul>

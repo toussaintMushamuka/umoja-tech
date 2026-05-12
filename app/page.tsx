@@ -9,6 +9,7 @@ import TestimonialCard from "@/components/testimonial-card";
 import { services, getServiceIcon } from "@/lib/services-data";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import HeroSection from "@/components/hero-section";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,93 +39,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen w-full ">
-      {/* Hero Section with Animation */}
-      <section className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-slate-800 from-primary/20 to-primary/5 dark:from-primary/10 dark:to-background z-0" />
-
-        {/* Background image */}
-        <div
-          className="absolute inset-0 z-0 opacity-10 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/img/img7.jpg')",
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-2 items-center">
-            {/* Texte à gauche */}
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <h1 className="text-3xl sm:text-2xl md:text-4xl font-bold text-white leading-tight">
-                Des services de qualités
-                <br />
-                pour répondre à vos besoins
-              </h1>
-              <p className="text-muted-foreground md:text-xl max-w-2xl">
-                Umoja Tech vous offre une gamme complète de services de
-                bureautique, d'impression, de conception et de marketing
-                digital.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/services">
-                  <Button
-                    size="lg"
-                    className="group hover:translate-x-1 transition-all duration-300"
-                  >
-                    Découvrir nos services
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="hover:bg-primary/10"
-                  >
-                    Demander un devis
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Image à droite */}
-            <motion.div
-              className="mt-8 lg:mt-0 w-full flex justify-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <div className="relative w-full max-w-md aspect-video lg:aspect-square rounded-xl overflow-hidden shadow-2xl dark:shadow-primary/20">
-                <img
-                  src="/img/img6.jpg"
-                  alt="Umoja Tech Services"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Flèche vers le bas */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.7,
-            delay: 1.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        >
-          <ChevronDown className="h-8 w-8 text-primary" />
-        </motion.div>
-      </section>
+      <HeroSection />
 
       {/* Services Overview Section with Animation */}
       <section className="w-full py-12 md:py-24 lg:py-32 relative">
