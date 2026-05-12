@@ -8,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export default function SiteHeader() {
   const pathname = usePathname()
@@ -73,9 +74,8 @@ export default function SiteHeader() {
               </nav>
             </SheetContent>
           </Sheet>
-          <Link href="/" className="flex items-center gap-2">
-            <Mountain className="h-6 w-6" />
-            <span className="hidden font-bold sm:inline-block">Umoja Tech</span>
+          <Link href="/" className="flex items-center">
+            <Image src="/img/logo.png" width={100} height={100} alt="Umoja Tech" />
           </Link>
         </div>
         <nav className="hidden md:flex gap-6">
