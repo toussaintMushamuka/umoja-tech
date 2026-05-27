@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import ServiceCard from "@/components/service-card";
-import { services, getServiceIcon } from "@/lib/services-data";
+import { services } from "@/lib/services-data";
 import { Button } from "@/components/ui/button";
 import { Camera, Printer, PenTool, Megaphone, CheckCircle, Mail, Briefcase, Palette } from "lucide-react";
 export default function ServicesPage() {
@@ -63,39 +63,7 @@ export default function ServicesPage() {
             <div className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border border-border/60 z-0"></div>
             <div className="absolute w-[350px] h-[350px] sm:w-[480px] sm:h-[480px] lg:w-[580px] lg:h-[580px] rounded-full border border-border/30 z-0 hidden sm:block"></div>
 
-            {/* Floating Nodes (Icons) */}
-            <motion.div 
-              className="absolute top-[5%] sm:top-[10%] left-[10%] sm:left-[15%] bg-white dark:bg-slate-800 p-3 rounded-full shadow-lg z-30"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            >
-            </motion.div>
-            <motion.div 
-              className="absolute bottom-[5%] sm:bottom-[15%] left-[5%] sm:left-[10%] p-3 sm:p-4 rounded-full shadow-lg z-30"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }} >
-               <Printer className="w-6 h-6 sm:w-8 sm:h-8 dark:text-blue-400" />
-            </motion.div>
-            <motion.div 
-              className="absolute top-[15%] sm:top-[20%] right-[5%] sm:right-[10%] p-3 rounded-full shadow-lg z-30"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-            >
-               <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 dark:text-blue-400" />
-            </motion.div>
-            <motion.div 
-              className="absolute bottom-[5%] sm:bottom-[10%] right-[10%] sm:right-[15%] p-3 rounded-full shadow-lg z-30"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1.5 }}
-            >
-               <Camera className="w-5 h-5 sm:w-6 sm:h-6 dark:text-blue-400" />
-            </motion.div>
-            <motion.div 
-              className="absolute top-[-5%] sm:top-[0%] left-[45%]  p-2 sm:p-3 rounded-full shadow-lg z-30"
-              animate={{ y: [0, -15, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.2 }}
-            >
-            </motion.div>
+            {/* Floating Nodes removed */}
           </div>
 
           {/* Right Features */}
@@ -121,8 +89,8 @@ export default function ServicesPage() {
             >
             
               <div>
-                <h3 className="font-bold text-sm sm:text-base">Marketing Digital</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Visibilité accrue</p>
+                <h3 className="font-bold text-sm sm:text-base">Impression</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">Impression de qualité supérieure</p>
               </div>
             </motion.div>
 
@@ -150,11 +118,10 @@ export default function ServicesPage() {
         animate="show"
       >
         {services.map((service) => {
-          const IconComponent = getServiceIcon(service.icon);
           return (
             <motion.div key={service.id} variants={item}>
               <ServiceCard
-                icon={<IconComponent className="h-10 w-10" />}
+                icon={undefined}
                 title={service.title}
                 description={service.shortDescription}
                 slug={service.id}

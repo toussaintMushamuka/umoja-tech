@@ -1,4 +1,5 @@
-import { Printer, Palette, Shirt, Globe, BookOpen, Camera, Share2 } from "lucide-react"
+import { Printer, Palette, Shirt, Globe, BookOpen, Camera, Share2, LucideIcon } from "lucide-react"
+import { ParamValue } from "next/dist/server/request/params"
 
 export const services = [
   {
@@ -33,7 +34,7 @@ export const services = [
       {
         question: "Quel est le délai pour l'impression de documents?",
         answer:
-          "Pour les documents standards, nous proposons un service en 24h. Pour les commandes urgentes, nous offrons un service express en quelques heures.",
+          "Pour les documents standards, nous proposons un service en 24h. Pour les commandes urgentes, nous offrons un service express en quelques minutes.",
       },
       {
         question: "Quels formats de papier proposez-vous?",
@@ -62,11 +63,11 @@ export const services = [
     features: [
       {
         title: "Design créatif",
-        description: "Nos designers créent des affiches uniques et attrayantes qui captent l'attention.",
+        description: "Nous créyons des affiches uniques et attrayantes qui captent l'attention.",
       },
       {
         title: "Grands formats",
-        description: "Impression d'affiches en grand format pour une visibilité maximale.",
+        description: "Nous imprimons  d'affiches en grand format pour une visibilité maximale.",
       },
       {
         title: "Matériaux de qualité",
@@ -83,7 +84,7 @@ export const services = [
       {
         question: "Quels sont les délais pour la création d'affiches?",
         answer:
-          "Le délai dépend de la complexité du projet, mais généralement, nous pouvons livrer en 3-5 jours ouvrables.",
+          "Le délai dépend de la complexité du projet, mais généralement, nous pouvons livrer en 1 ou 2jours ouvrables.",
       },
       {
         question: "Puis-je apporter des modifications après avoir vu le premier concept?",
@@ -101,21 +102,21 @@ export const services = [
       "Personnalisez vos vêtements et accessoires avec notre service d'impression sur textile de qualité supérieure.",
     details: [
       "Impression sur T-shirts, vareuses, chapeaux",
-      "Techniques variées : sérigraphie, transfert thermique, broderie",
+      "Techniques variées : vinyle, DTF, sublimation",
       "Idéal pour équipes sportives, événements, uniformes d'entreprise",
       "Possibilité de petites et grandes quantités",
     ],
     features: [
       {
-        title: "Sérigraphie",
-        description: "Technique d'impression durable idéale pour les grandes quantités.",
+        title: "Impression Vinyle",
+        description: "Finition élégante et professionnelle pour vos vêtements d'entreprise.",
       },
       {
-        title: "Transfert thermique",
-        description: "Parfait pour les designs détaillés et les petites séries.",
+        title: "Impression DTF",
+        description: "Finition élégante et professionnelle pour vos vêtements d'entreprise.",
       },
       {
-        title: "Broderie",
+        title: "Impression sublimation",
         description: "Finition élégante et professionnelle pour vos vêtements d'entreprise.",
       },
     ],
@@ -134,7 +135,7 @@ export const services = [
       {
         question: "Quels types de vêtements pouvez-vous personnaliser?",
         answer:
-          "Nous pouvons imprimer sur presque tous les types de vêtements: t-shirts, polos, sweats, casquettes, sacs en tissu, et bien plus encore.",
+          "Nous pouvons imprimer sur presque tous les types de vêtements: t-shirts, polos, sweats, casquettes, et bien plus encore.",
       },
     ],
   },
@@ -147,8 +148,7 @@ export const services = [
       "Nous développons des sites web modernes et des applications sur mesure pour répondre aux besoins spécifiques de votre entreprise.",
     details: [
       "Sites web responsives adaptés à tous les appareils",
-      "Applications web et mobiles personnalisées",
-      "Intégration de systèmes de paiement et de gestion de contenu",
+      "Applications web personnalisées",
       "Maintenance et support technique",
     ],
     features: [
@@ -182,6 +182,11 @@ export const services = [
         answer:
           "Oui, nous offrons des forfaits de maintenance qui incluent les mises à jour de sécurité, les sauvegardes régulières et le support technique.",
       },
+      {
+        question: "Quelle application web avez-vous développée?",
+        answer:
+          "Nous avons dévélopper une application qui facilite la location de maison à BUKAVU et GOMA en connectant les proprietaire aux locataires l'application est accessible à l'adresse: https://pango.pub",
+      },
     ],
   },
   {
@@ -199,15 +204,15 @@ export const services = [
     ],
     features: [
       {
-        title: "Excel avancé",
-        description: "Maîtrisez les fonctions avancées, les tableaux croisés dynamiques et les macros.",
+        title: "Excel",
+        description: "Apprenez à utiliser Excel .",
       },
       {
-        title: "Word professionnel",
+        title: "Word",
         description: "Apprenez à créer des documents professionnels avec mise en page avancée.",
       },
       {
-        title: "PowerPoint efficace",
+        title: "PowerPoint",
         description: "Créez des présentations impactantes avec animations et transitions professionnelles.",
       },
     ],
@@ -226,34 +231,23 @@ export const services = [
       {
         question: "Quelle est la durée d'une formation?",
         answer:
-          "La durée varie selon le programme et le niveau. Nous proposons des formations d'une demi-journée, d'une journée complète ou des programmes plus longs répartis sur plusieurs semaines.",
+          "nous disposons d'un programme de formation court et intensif qui permet à nos clients d'acquérir les compétences nécessaires en un temps record.",
       },
     ],
   },
   {
-    id: "photos-professionnelles",
+    id: "photos passeport",
     icon: "Camera",
-    title: "Photos professionnelles",
-    shortDescription: "Photos passeport et photos pour cérémonies de haute qualité",
+    title: "Photos passeport",
+    shortDescription: "Photos passeport de haute qualité",
     description: "Service professionnel de photographie pour vos documents officiels et événements importants.",
     details: [
-      "Photos d'identité aux normes internationales",
-      "Photos pour passeport, visa, permis de conduire",
-      "Photographie d'événements et de cérémonies",
-      "Retouche photo professionnelle",
+      "nous offrons des photos passeport de haute qualité pour vos documents officiels.",
     ],
     features: [
       {
         title: "Photos d'identité",
         description: "Photos conformes aux normes internationales pour tous vos documents officiels.",
-      },
-      {
-        title: "Photographie d'événements",
-        description: "Capturez les moments importants de vos cérémonies et événements professionnels.",
-      },
-      {
-        title: "Retouche professionnelle",
-        description: "Service de retouche photo pour un résultat parfait et naturel.",
       },
     ],
     gallery: [1, 2, 3],
@@ -262,66 +256,12 @@ export const services = [
         question: "Les photos d'identité sont-elles conformes aux normes officielles?",
         answer:
           "Oui, nos photos respectent toutes les normes internationales pour les passeports, visas et autres documents officiels.",
-      },
-      {
-        question: "Quel est le délai pour obtenir des photos d'identité?",
-        answer: "Le service est généralement immédiat. Vous repartez avec vos photos en quelques minutes.",
-      },
-      {
-        question: "Proposez-vous des séances photo en extérieur?",
-        answer:
-          "Oui, nous offrons des séances photo en extérieur pour les portraits, les événements familiaux ou professionnels.",
-      },
+      }
     ],
-  },
-  {
-    id: "marketing-digital",
-    icon: "Share2",
-    title: "Marketing digital",
-    shortDescription: "Gestion des réseaux sociaux et stratégies marketing efficaces",
-    description: "Boostez votre présence en ligne avec nos services complets de marketing digital.",
-    details: [
-      "Gestion des réseaux sociaux",
-      "Stratégies marketing personnalisées",
-      "Campagnes publicitaires en ligne",
-      "Analyse de performance et rapports détaillés",
-    ],
-    features: [
-      {
-        title: "Gestion des réseaux sociaux",
-        description: "Création et gestion de contenu engageant pour vos plateformes sociales.",
-      },
-      {
-        title: "Publicité en ligne",
-        description: "Campagnes publicitaires ciblées sur Google, Facebook, Instagram et autres plateformes.",
-      },
-      {
-        title: "Analyse et rapports",
-        description: "Suivi détaillé des performances avec rapports réguliers et recommandations.",
-      },
-    ],
-    gallery: [1, 2, 3],
-    faq: [
-      {
-        question: "Sur quels réseaux sociaux pouvez-vous gérer ma présence?",
-        answer:
-          "Nous gérons tous les principaux réseaux sociaux: Facebook, Instagram, Twitter, LinkedIn, TikTok, et plus encore, selon votre cible et vos objectifs.",
-      },
-      {
-        question: "Comment mesurez-vous les résultats des campagnes marketing?",
-        answer:
-          "Nous utilisons des outils d'analyse avancés pour suivre les performances: taux d'engagement, conversions, ROI, etc. Vous recevez des rapports détaillés régulièrement.",
-      },
-      {
-        question: "Puis-je choisir un forfait adapté à mon budget?",
-        answer:
-          "Oui, nous proposons différents forfaits adaptés à tous les budgets, des startups aux grandes entreprises. Nous pouvons également créer un forfait sur mesure.",
-      },
-    ],
-  },
+  }
 ]
 
-export function getServiceBySlug(slug) {
+export function getServiceBySlug(slug: ParamValue) {
   return services.find((service) => service.id === slug)
 }
 
@@ -329,16 +269,17 @@ export function getAllServiceIds() {
   return services.map((service) => service.id)
 }
 
-export function getServiceIcon(iconName) {
-  const icons = {
-    Printer,
-    Palette,
-    Shirt,
-    Globe,
-    BookOpen,
-    Camera,
-    Share2,
-  }
+const iconMap: Record<string, LucideIcon> = {
+  Printer,
+  Palette,
+  Shirt,
+  Globe,
+  BookOpen,
+  Camera,
+  Share2
+}
 
-  return icons[iconName]
+export function getServiceIcon(iconName?: string): LucideIcon {
+  if (!iconName) return Share2;
+  return iconMap[iconName] || Share2
 }

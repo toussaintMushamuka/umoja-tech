@@ -6,7 +6,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/service-card";
 import TestimonialCard from "@/components/testimonial-card";
-import { services, getServiceIcon } from "@/lib/services-data";
+import { services } from "@/lib/services-data";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import HeroSection from "@/components/hero-section";
@@ -42,7 +42,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Services Overview Section with Animation */}
-      <section className="w-full py-12 md:py-24 lg:py-32 relative">
+      <section className="w-full  md:py-24 lg:py-32 relative">
         <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 dark:bg-primary/10 rounded-full filter blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/5 dark:bg-primary/10 rounded-full filter blur-3xl -z-10 transform -translate-x-1/2 translate-y-1/2"></div>
 
@@ -72,15 +72,12 @@ export default function Home() {
             viewport={{ once: true }}
           >
             {services.slice(0, 8).map((service, index) => {
-              const IconComponent = getServiceIcon(service.icon);
               return (
                 <motion.div key={service.id} variants={item}>
                   <ServiceCard
-                    icon={<IconComponent className="h-10 w-10" />}
                     title={service.title}
                     description={service.shortDescription}
-                    slug={service.id}
-                  />
+                    slug={service.id} icon={undefined}                  />
                 </motion.div>
               );
             })}
