@@ -42,7 +42,7 @@ export default function AboutPage() {
                   Umoja Tech
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground">
-                  Solutions Bureautiques & Services Créatifs à Kinshasa
+                  Solutions Bureautiques & Services Créatifs à Bukavu
                 </p>
               </div>
 
@@ -188,7 +188,7 @@ export default function AboutPage() {
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
                 Créée en 2024, UmojaTech est née de la volonté d'apporter des
                 solutions innovantes et accessibles. Notre équipe combine
-                expertise en bureautique, design, photographie et développement
+                expertise en bureautique, design et développement
                 web pour offrir des services de qualité supérieure.
               </p>
 
