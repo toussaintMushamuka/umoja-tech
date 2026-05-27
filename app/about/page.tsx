@@ -74,7 +74,7 @@ export default function AboutPage() {
               transition={{ duration: 0.7 }}
             >
               <img
-                src="/img/img2.jpg"
+                src="/img/img1.jpg"
                 alt="Umoja Tech Team"
                 className="w-full h-full object-cover rounded-2xl shadow-2xl"
               />
@@ -100,8 +100,8 @@ export default function AboutPage() {
               className="p-6 md:p-8 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex flex-col items-center text-center space-y-3">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Award className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                <div className="p-3  rounded-lg">
+      
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">Qualité Garantie</h3>
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
@@ -117,8 +117,8 @@ export default function AboutPage() {
               className="p-6 md:p-8 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex flex-col items-center text-center space-y-3">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Zap className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                <div className="p-3 rounded-lg">
+              
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">Rapidité</h3>
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
@@ -134,8 +134,8 @@ export default function AboutPage() {
               className="p-6 md:p-8 rounded-xl border border-border bg-card hover:shadow-lg transition-shadow duration-300 sm:col-span-2 lg:col-span-1"
             >
               <div className="flex flex-col items-center text-center space-y-3">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Lightbulb className="h-6 w-6 md:h-8 md:w-8 text-primary" />
+                <div className="p-3 rounded-lg">
+                  
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">Innovation</h3>
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
