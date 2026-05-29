@@ -1,26 +1,42 @@
-"use client"
+"use client";
 
-import { useParams } from "next/navigation"
-import Link from "next/link"
-import { ArrowLeft, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { getServiceBySlug, getServiceIcon, services } from "@/lib/services-data"
-import { motion } from "framer-motion"
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import { ArrowLeft, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  getServiceBySlug,
+  getServiceIcon,
+  services,
+} from "@/lib/services-data";
+import { motion } from "framer-motion";
+import { ParamValue } from "next/dist/server/request/params";
+import Image from "next/image";
+import { ImageResponse } from "next/server";
 
 export default function ServiceDetailPage() {
-  const params = useParams()
-  const slug = params.slug
+  const params = useParams();
+  const slug = params.slug;
 
-  const service = getServiceBySlug(slug)
+  const service = getServiceBySlug(slug);
 
   if (!service) {
     return (
       <div className="container py-12 md:py-24 lg:py-32 text-center">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Service non trouvé</h1>
-        <p className="mt-4 text-muted-foreground">Le service que vous recherchez n'existe pas.</p>
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+          Service non trouvé
+        </h1>
+        <p className="mt-4 text-muted-foreground">
+          Le service que vous recherchez n'existe pas.
+        </p>
         <Link href="/services">
           <Button className="mt-8">
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -28,13 +44,13 @@ export default function ServiceDetailPage() {
           </Button>
         </Link>
       </div>
-    )
+    );
   }
 
-  const IconComponent = getServiceIcon(service.icon)
+  const IconComponent = getServiceIcon(service.icon);
 
   // Get related services directly using the imported services array
-  const relatedServices = getRelatedServices(slug)
+  const relatedServices = getRelatedServices(slug);
 
   return (
     <div className="container py-12 md:py-24 lg:py-32">
@@ -54,13 +70,14 @@ export default function ServiceDetailPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-primary/10 rounded-full">
-              <IconComponent className="h-8 w-8 text-primary" />
-            </div>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl">{service.title}</h1>
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tighter sm:text-4xl">
+              {service.title}
+            </h1>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-8">{service.description}</p>
+          <p className="text-lg md:text-xl text-muted-foreground mb-8">
+            {service.description}
+          </p>
 
           <Tabs defaultValue="details" className="w-full">
             <TabsList className="grid w-full grid-cols-3">
@@ -70,7 +87,9 @@ export default function ServiceDetailPage() {
             </TabsList>
             <TabsContent value="details" className="mt-6">
               <div className="space-y-6">
-                <h2 className="text-xl md:text-2xl font-bold">Ce que nous offrons</h2>
+                <h2 className="text-xl md:text-2xl font-bold">
+                  Ce que nous offrons
+                </h2>
                 <ul className="grid gap-3">
                   {service.details.map((detail, i) => (
                     <motion.li
@@ -87,18 +106,21 @@ export default function ServiceDetailPage() {
                 </ul>
 
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-12">
-                  {service.gallery.map((item, i) => (
+                  {service.gallery.map((image, i) => (
                     <motion.div
                       key={i}
                       className="overflow-hidden rounded-lg"
                       whileHover={{ scale: 1.03 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <img
-                        src={`/placeholder.svg?height=300&width=400&text=Image+${service.title}+${i + 1}`}
-                        alt={`${service.title} - Image ${i + 1}`}
-                        className="w-full h-auto object-cover aspect-video"
-                      />
+                      <div className="relative w-full h-48 bg-gray-200 dark:bg-gray-700 overflow-hidden rounded-lg">
+                        <Image
+                          src={image}
+                          alt={`${service.title} - Image ${i + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                     </motion.div>
                   ))}
                 </div>
@@ -106,7 +128,9 @@ export default function ServiceDetailPage() {
             </TabsContent>
             <TabsContent value="features" className="mt-6">
               <div className="space-y-6">
-                <h2 className="text-xl md:text-2xl font-bold">Caractéristiques principales</h2>
+                <h2 className="text-xl md:text-2xl font-bold">
+                  Caractéristiques principales
+                </h2>
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                   {service.features.map((feature, i) => (
                     <motion.div
@@ -117,8 +141,12 @@ export default function ServiceDetailPage() {
                     >
                       <Card className="h-full transition-all duration-300 hover:shadow-md dark:hover:shadow-primary/10">
                         <CardContent className="pt-6">
-                          <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                          <p className="text-muted-foreground">{feature.description}</p>
+                          <h3 className="text-lg font-bold mb-2">
+                            {feature.title}
+                          </h3>
+                          <p className="text-muted-foreground">
+                            {feature.description}
+                          </p>
                         </CardContent>
                       </Card>
                     </motion.div>
@@ -128,7 +156,9 @@ export default function ServiceDetailPage() {
             </TabsContent>
             <TabsContent value="faq" className="mt-6">
               <div className="space-y-6">
-                <h2 className="text-xl md:text-2xl font-bold">Questions fréquentes</h2>
+                <h2 className="text-xl md:text-2xl font-bold">
+                  Questions fréquentes
+                </h2>
                 <Accordion type="single" collapsible className="w-full">
                   {service.faq.map((item, i) => (
                     <AccordionItem key={i} value={`item-${i}`}>
@@ -151,9 +181,12 @@ export default function ServiceDetailPage() {
           >
             <Card className="border-primary/10 dark:border-primary/20">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-bold mb-4">Intéressé par ce service?</h3>
+                <h3 className="text-xl font-bold mb-4">
+                  Intéressé par ce service?
+                </h3>
                 <p className="text-muted-foreground mb-6">
-                  Contactez-nous dès aujourd'hui pour discuter de votre projet et obtenir un devis personnalisé.
+                  Contactez-nous dès aujourd'hui pour discuter de votre projet
+                  et obtenir un devis personnalisé.
                 </p>
                 <div className="space-y-3">
                   <Link href="/contact">
@@ -170,11 +203,16 @@ export default function ServiceDetailPage() {
                 </div>
 
                 <div className="mt-8 pt-6 border-t">
-                  <h4 className="font-medium mb-3">Autres services qui pourraient vous intéresser:</h4>
+                  <h4 className="font-medium mb-3">
+                    Autres services qui pourraient vous intéresser:
+                  </h4>
                   <ul className="space-y-2">
                     {relatedServices.map((relatedService, i) => (
                       <li key={i}>
-                        <Link href={`/services/${relatedService.id}`} className="text-primary hover:underline">
+                        <Link
+                          href={`/services/${relatedService.id}`}
+                          className="text-primary hover:underline"
+                        >
                           {relatedService.title}
                         </Link>
                       </li>
@@ -187,14 +225,14 @@ export default function ServiceDetailPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Helper function to get 3 related services - fixed to use imported services array
-function getRelatedServices(currentSlug, limit = 3) {
+function getRelatedServices(currentSlug: ParamValue, limit = 3) {
   // Filter out the current service and get random related services
   return services
     .filter((service) => service.id !== currentSlug)
     .sort(() => 0.5 - Math.random())
-    .slice(0, limit)
+    .slice(0, limit);
 }

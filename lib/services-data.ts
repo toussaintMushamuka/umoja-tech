@@ -29,7 +29,12 @@ export const services = [
         description: "Impression de cartes de visite professionnelles qui reflètent votre image de marque.",
       },
     ],
-    gallery: [1, 2, 3],
+   
+    gallery: [
+      "/img/a.jpg",
+      "/img/b.jpg",
+      "/img/c.jpg"
+    ],
     faq: [
       {
         question: "Quel est le délai pour l'impression de documents?",
@@ -74,7 +79,11 @@ export const services = [
         description: "Utilisation de matériaux durables et de haute qualité pour vos affiches.",
       },
     ],
-    gallery: [1, 2, 3],
+    gallery: [
+      "/img/d.jpg",
+      "/img/e.jpg",
+      "/img/f.jpg"
+    ],
     faq: [
       {
         question: "Quel est le processus de création d'une affiche?",
@@ -120,7 +129,11 @@ export const services = [
         description: "Finition élégante et professionnelle pour vos vêtements d'entreprise.",
       },
     ],
-    gallery: [1, 2, 3],
+    gallery: [
+      "/img/g.jpg",
+      "/img/h.jpg",
+      "/img/i.jpg"
+    ],
     faq: [
       {
         question: "Quelle technique d'impression est la plus adaptée pour mon projet?",
@@ -165,7 +178,11 @@ export const services = [
         description: "Développement d'applications web et mobiles adaptées à vos besoins spécifiques.",
       },
     ],
-    gallery: [1, 2, 3],
+    gallery: [
+      "/img/j.jpg",
+      "/img/k.jpg",
+      "/img/l.jpg"
+    ],
     faq: [
       {
         question: "Combien coûte la création d'un site web?",
@@ -216,7 +233,11 @@ export const services = [
         description: "Créez des présentations impactantes avec animations et transitions professionnelles.",
       },
     ],
-    gallery: [1, 2, 3],
+    gallery: [
+      "/img/m.jpg",
+      "/img/n.jpg",
+      "/img/o.jpg"
+    ],
     faq: [
       {
         question: "Les formations sont-elles adaptées aux débutants?",
@@ -250,7 +271,11 @@ export const services = [
         description: "Photos conformes aux normes internationales pour tous vos documents officiels.",
       },
     ],
-    gallery: [1, 2, 3],
+    gallery: [
+      "/img/p.jpg",
+      "/img/q.jpg",
+      "/img/r.jpg"
+    ],
     faq: [
       {
         question: "Les photos d'identité sont-elles conformes aux normes officielles?",
