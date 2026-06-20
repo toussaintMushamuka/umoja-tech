@@ -47,7 +47,7 @@ export default function ContactPage() {
         transition={{ duration: 0.7 }}
       >
         <section
-          className="relative h-80 bg-cover bg-center bg-no-repeat"
+          className="relative mt-10 h-80 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/img/img8.jpg')" }}
         >
           <div className="absolute inset-0 bg-black/60" />
